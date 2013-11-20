@@ -98,7 +98,40 @@ void ARMATEST(TYPE *a, TYPE*b, const char * text)
 
 	cout << dt << " Template ARMA " << text << endl;
 }
+template <class TYPE,class TYPE2>
+void ARMATEST2(TYPE *a, TYPE2*b, const char * text)
+{
+	bool copy_aux_mem = false; //Do not copy memory to an auxilery memory location.
+	arma::Row<TYPE> left  = arma::Row<TYPE>(a, ARRAY_SIZES,copy_aux_mem);
+	arma::Row<TYPE2> right  = arma::Row<TYPE2>(a, ARRAY_SIZES,copy_aux_mem);
 
+	start = boost::posix_time::microsec_clock::universal_time();
+	for(int loop=0;loop<REPEATES;loop++)
+	{
+		left = left % right;
+	}
+	end       = boost::posix_time::microsec_clock::universal_time();
+	dt = end - start;
+
+	cout << dt << " Template ARMA " << text << endl;
+}
+void int8_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				int8_g[x] = int8_g[x]*int8_g2[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " Function int8_g,int8_g,int8_g" << endl;
+}
 void int16_test()
 {
 	start = boost::posix_time::microsec_clock::universal_time();
@@ -116,7 +149,161 @@ void int16_test()
 
 		cout << dt << " Function int16_g,int16_g,int16_g" << endl;
 }
-void float_conversion_test()
+void int32_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				int32_g[x] = int32_g[x]*int32_g2[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " Function int32_g,int32_g,int32_g" << endl;
+}
+void int64_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				int64_g[x] = int64_g[x]*int64_g2[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " Function int64_g,int64_g,int64_g" << endl;
+}
+void float_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				float_g[x] = float_g[x]*float_g2[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " Function float_g,float_g,float_g" << endl;
+}
+void double_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				double_g[x] = double_g[x]*double_g2[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " Function double_g,double_g,double_g" << endl;
+}
+void cx_double_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				cx_double_g[x] = cx_double_g[x]*cx_double_g2[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " Function cx_double_g,cx_double_g,cx_double_g" << endl;
+}
+void cx_float_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				cx_float_g[x] = cx_float_g[x]*cx_float_g2[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " Function cx_float_g,cx_float_g,cx_float_g" << endl;
+}
+
+void int16_int8_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				int16_g[x] = int16_g[x]*int8_g[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " function int16_g[x] = int16_g[x]*int8_g[x];" << endl;
+}
+void int32_int8_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				int32_g[x] = int32_g[x]*int8_g[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " function int32_g[x] = int32_g[x]*int8_g[x];" << endl;
+}
+void int32_int16_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				int32_g[x] = int32_g[x]*int16_g[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " function int32_g[x] = int32_g[x]*int16_g[x];" << endl;
+}
+void float_int8_test()
 {
 	start = boost::posix_time::microsec_clock::universal_time();
 
@@ -133,7 +320,58 @@ void float_conversion_test()
 
 		cout << dt << " function float_g[x] = float_g[x]*int8_g[x];" << endl;
 }
+void float_int16_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
 
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				float_g[x] = float_g[x]*int16_g[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " function float_g[x] = float_g[x]*int16_g[x];" << endl;
+}
+void float_int32_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				float_g[x] = float_g[x]*int32_g[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " function float_g[x] = float_g[x]*int32_g[x];" << endl;
+}
+
+void cx_float_float_test()
+{
+	start = boost::posix_time::microsec_clock::universal_time();
+
+		for(int loop=0;loop<REPEATES;loop++)
+		{
+			for(int x=0;x<ARRAY_SIZES; x++)
+			{
+				cx_float_g[x] = cx_float_g[x]*float_g[x];
+			}
+		}
+
+		end       = boost::posix_time::microsec_clock::universal_time();
+		dt = end - start;
+
+		cout << dt << " function cx_float_g[x] = cx_float_g[x]*float_g[x];" << endl;
+}
 int main()
 {
 
@@ -148,11 +386,18 @@ int main()
 
 	BasicTest(int8_g,int8_g,int8_g2 ,"int8_g,int8_g,int8_g");
 	BasicTest(int16_g,int16_g,int16_g2 ,"int16_g,int16_g,int16_g");
-	int16_test();
+
 	BasicTest(int32_g,int32_g,int32_g2 ,"int32_g,int32_g,int32_g");
 	BasicTest(int64_g,int64_g,int64_g2 ,"int64_g,int64_g,int64_g");
 	BasicTest(float_g,float_g,float_g2 ,"float_g,float_g,float_g ");
 	BasicTest(double_g,double_g,double_g2 ,"double_g,double_g,double_g ");
+	int8_test();
+	int16_test();
+	int32_test();
+	float_test();
+	double_test();
+	cx_float_test();
+	cx_double_test();
 	BasicTest(cx_int32_g,cx_int32_g,cx_int32_g2 ,"cx_int32_g,cx_int32_g,cx_int32_g2");
 	BasicTest(cx_float_g,cx_float_g,cx_float_g2 ,"cx_float_g,cx_float_g,cx_float_g2");
 	BasicTest(cx_double_g,cx_double_g,cx_double_g2 ,"cx_double_g,cx_double_g,cx_double_g2");
@@ -169,7 +414,7 @@ int main()
 
 	BasicTest(float_g,float_g,int8_g ,"float_g,float_g,int8_g ");
 	BasicTest(float_g,float_g,int16_g ,"float_g,float_g,int16_g ");
-	float_conversion_test();
+
 	BasicTest(float_g,float_g,int32_g ,"float_g,float_g,int32_g ");
 	BasicTest(float_g,float_g,int64_g ,"float_g,float_g,int64_g ");
 
@@ -182,6 +427,15 @@ int main()
 	BasicTest(cx_float_g,cx_float_g,float_g ,"cx_float_g,cx_float_g,float_g");
 	BasicTest(cx_double_g,cx_double_g,double_g ,"cx_double_g,cx_double_g,double_g");
 
+	int16_int8_test();
+	int32_int8_test();
+	int32_int16_test();
+	float_int8_test();
+	float_int16_test();
+	float_int32_test();
+
+	cx_float_float_test();
+
 	cout << "ARMADILLO" << endl;
 //	ARMATEST(int8_g,int8_g2 ,"int8_g,int8_g,int8_g"); //Not supported
 	ARMATEST(int16_g,int16_g2 ,"int16_g,int16_g,int16_g");
@@ -190,8 +444,8 @@ int main()
 	ARMATEST(float_g,float_g2 ,"float_g,float_g,float_g ");
 	ARMATEST(double_g,double_g2 ,"double_g,double_g,double_g ");
 	ARMATEST(cx_float_g,cx_float_g2 ,"cx_float_g,cx_float_g2 ");
-	ARMATEST(cx_double_g,cx_double_g ,"cx_double_g,cx_float_g2 ");
-
+	ARMATEST(cx_double_g,cx_double_g2 ,"cx_double_g,cx_float_g2 ");
+//	ARMATEST2(int16_g,double_g2,"int16_g,double_g2");
 //	cout << "STACK TEST " << endl;
 //	/*! Setup arrays that are done from stack memory*/
 //	int8_t  int8_s[ARRAY_SIZES];

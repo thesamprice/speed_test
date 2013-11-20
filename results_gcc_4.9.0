@@ -1,0 +1,51 @@
+ Time to taken to multiply arrays of length 2048 together 500000 times
+Order is RESULT, LEFT, RIGHT ==== RESULT = LEFT * RIGHT
+HEAP TEST 
+00:00:00.602326 Template int8_g,int8_g,int8_g
+00:00:00.599320 Template int16_g,int16_g,int16_g
+00:00:00.600535 Template int32_g,int32_g,int32_g
+00:00:00.608288 Template int64_g,int64_g,int64_g
+00:00:00.599636 Template float_g,float_g,float_g 
+00:00:00.598758 Template double_g,double_g,double_g 
+00:00:00.120492 Function int8_g,int8_g,int8_g
+00:00:00.077560 Function int16_g,int16_g,int16_g
+00:00:00.331825 Function int32_g,int32_g,int32_g
+00:00:00.151449 Function float_g,float_g,float_g
+00:00:00.301839 Function double_g,double_g,double_g
+00:00:01.493514 Function cx_float_g,cx_float_g,cx_float_g
+00:00:01.523139 Function cx_double_g,cx_double_g,cx_double_g
+00:00:01.494966 Template cx_int32_g,cx_int32_g,cx_int32_g2
+00:00:01.492810 Template cx_float_g,cx_float_g,cx_float_g2
+00:00:01.506090 Template cx_double_g,cx_double_g,cx_double_g2
+Conversions
+00:00:01.192305 Template int16_g,int16_g,int8_g
+00:00:00.605151 Template int32_g,int32_g,int8_g
+00:00:00.605097 Template int64_g,int64_g,int8_g
+00:00:00.601070 Template int32_g,int32_g,int16_g
+00:00:00.607778 Template int64_g,int64_g,int16_g 
+00:00:00.599556 Template int64_g,int64_g,int32_g 
+00:00:00.901725 Template float_g,float_g,int8_g 
+00:00:00.898855 Template float_g,float_g,int16_g 
+00:00:00.894368 Template float_g,float_g,int32_g 
+00:00:00.911776 Template float_g,float_g,int64_g 
+00:00:00.911368 Template double_g,double_g,int8_g 
+00:00:00.908459 Template double_g,double_g,int16_g 
+00:00:00.911741 Template double_g,double_g,int32_g 
+00:00:00.912513 Template double_g,double_g,int64_g 
+00:00:00.908461 Template double_g,double_g,float_g 
+00:00:00.914520 Template cx_float_g,cx_float_g,float_g
+00:00:00.956140 Template cx_double_g,cx_double_g,double_g
+00:00:00.079580 function int16_g[x] = int16_g[x]*int8_g[x];
+00:00:00.363325 function int32_g[x] = int32_g[x]*int8_g[x];
+00:00:00.334162 function int32_g[x] = int32_g[x]*int16_g[x];
+00:00:00.205632 function float_g[x] = float_g[x]*int8_g[x];
+00:00:00.178653 function float_g[x] = float_g[x]*int16_g[x];
+00:00:00.183865 function float_g[x] = float_g[x]*int32_g[x];
+00:00:00.916187 function cx_float_g[x] = cx_float_g[x]*float_g[x];
+ARMADILLO
+00:00:00.461872 Template ARMA int16_g,int16_g,int16_g
+00:00:00.459805 Template ARMA int32_g,int32_g,int32_g
+00:00:00.458084 Template ARMA float_g,float_g,float_g 
+00:00:00.311841 Template ARMA double_g,double_g,double_g 
+00:00:01.274354 Template ARMA cx_float_g,cx_float_g2 
+00:00:01.280272 Template ARMA cx_double_g,cx_float_g2 
